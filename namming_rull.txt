@@ -1,4 +1,4 @@
-version 1.00
+version 1.01 
 
 1. 类名
 
@@ -71,35 +71,35 @@ sg_：静态全局变量（static global）
 gg_：进程间共享的共享数据段全局变量（global global）
 
 类型缩写：
-char,TCHAR：									ch
-char[],TCHAR[]:								sz
-string：											str
-bool, BOOL：									b
-int,__int16,__int32,__int64：	n
-long：												l
-double：											d
-float：												f
-unsigned:											u
-BYTE：												by
-rWORD：												w
-DWORD：												dw
-unsigned：										u
-函数function：								fn
-指针pointer：									p
-长指针long pointer：					lp
-array:												a
-iterator:											it
-vector:												vct
-list:													lst
-map:													mp
-mulmap:												mmp
-set:													st
-mulset:												mst
-class:												cls
-接口\抽象类interface:					inf
-struct:												tag
-enum:													enm
-union:												uni
+char,TCHAR：					ch
+char[],TCHAR[]:				sz
+string：							str
+bool, BOOL：					b
+int,__int16,__int32,__int64： n
+long：								l
+double：							d
+float：								f
+unsigned:							u
+BYTE：								by
+rWORD：								w
+DWORD：								dw
+unsigned：						u
+函数function：				fn
+指针pointer：					p
+长指针long pointer：	lp
+array:								a
+iterator:							it
+vector:								vct
+list:									lst
+map:									mp
+mulmap:								mmp
+set:									st
+mulset:								mst
+class:								cls
+接口\抽象类interface:	inf
+struct:								tag
+enum:									enm
+union:								uni
 
 组合类型:
 1). 按声明顺序：如 unsigned long ulID
