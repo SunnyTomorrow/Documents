@@ -1,0 +1,138 @@
+v1.00
+
+1. 在.h/.cpp的开头应有一段格式统一的说明，内容包括：
+
+a. 文件名 (FileName)；
+b. 简短说明文件功能、用途 (Comment)；
+c. 创建人 (Creater)；
+d. 文件创建时间 (Date)。
+例：
+/*!
+  *@file
+  *@brief
+  *@author
+  *@date
+  */
+
+2. 除非极其简单，否则对函数应有注释说明。内容包括：功能、入口/出口参数，必要时还可有备注或补充说明。
+
+3. 每行代码的长度推荐为80列，最长不得超过120列；折行以对齐为准。
+
+4. 循环、分支代码，判断条件与执行代码不得在同一行上。
+
+例：正确：
+  if (n == -2)
+    n = 1;
+  else
+    n = 2;
+
+不得写做：
+if (n == -2) n = 1;
+else n = 2;
+
+5. 指针的定义，* 号应紧接变量名之前。
+例：可写做：int *pnsize;
+不得写做：int * pnsize;
+
+6. 在类的成员函数内调用非成员函数时，在非成员函数名前必须加上“::”。
+
+7. 函数入口参数有缺省值时，应注释说明。
+例:
+BOOL KSSaveToFile(const char cszFileName[],BOOL bCanReplace /* = TRUE */);
+或者：
+BOOL KSSaveToFile(const char cszFileName[],BOOL bCanReplace // = TRUE );
+
+8. else if 必须写在一行。
+
+9. 与‘{’、‘}’有关的各项规定：
+
+9.1‘{’、‘}’应独占一行。在该行内可有注释。
+例：正确：
+for (i = 0; i < cbLine; i++)
+{ // .....
+	printf("Line %d:", i);
+	printf("%s\n", pFileLines);
+}
+不得写做：
+for (i = 0; i < cb; i++)
+{printf("Line %d:", i);<br>printf("%s\n", pFileLines);}
+
+
+9.2‘{’必须另起一行，‘{’之后的代码必须缩进一个Tab。‘{’与‘}’必须在同一列上。
+例：正确：
+if (i > 0)
+{
+	m = 1;
+	n++;
+}
+不得写做：
+if (i > 0) {
+m = 1;
+n++;
+}
+例外：
+if (i == 0)
+{ ASSERT(FALSE); return; }
+
+9.3 在循环、分支之后若只有一行代码，虽然可省略‘{’、‘}’，但不推荐这么做。若省略后可能引起歧义，则必须加上‘{’、‘}’。
+
+10. 与空格有关的各项规定。
+
+10.1 在所有两目、三目运算符的两边都必须有空格。在单目运算符两端不必空格。但在‘->’、‘::’、‘.’、‘[’、‘]’等运算符前后，及‘&’（取地址）、‘*’（取值）等运算符之后不得有空格。
+例：正确：
+int n = 0, nTemp;
+for (int i = nMinLine; i <= nMaxLine; i++)
+不得写做：
+int n=0, nTemp;
+for ( int i=nMinLine; i<=nMaxLine; i++ )
+
+10.2 for、while、if 等关键词之后应有1个空格，再接‘(’，之后无空格；在结尾的‘)’前不得有空格。
+例：正确：
+if (-2 == n)
+不得写做：
+if(-2 == n)
+或
+if ( -2 == n )
+
+10.3 调用函数、宏时，‘(’、‘)’前后不得有空格。
+例：正确：
+printf("%d\n", nIndex);
+不得写做：
+printf ("%d\n", nIndex);
+printf( "%d\n", nIndex );
+
+10.4 类型强制转换时，‘(’‘)’前后不得有空格
+例：可写做：
+(KSFile *)pFile
+不得写做：
+( KSFile* )pFile
+( KSFile * ) pFile
+
+11. 与缩进有关的各项规定
+
+11.1 缩进以 Tab 为单位。1 个 Tab 为 4 个空格
+
+11.2 下列情况，代码缩进一个 Tab:
+a. 函数体相对函数名及‘{’、‘}’。
+例：
+int Power(int x)
+{
+	return (x * x);
+}
+b. if、else、for、while、do 等之后的代码。
+c. 一行之内写不下，折行之后的代码，应在合理的位置进行折行。若有 + - * / 等运算符，则运算符应在上一行末尾，而不应在下一行的行首。
+
+11.3 下列情况，不必缩进：switch 之后的 case、default。
+例：
+switch (nID)
+{
+case ID_PLAY:
+　　......
+　　break;
+case ID_STOP:
+　　......
+　　break;
+default:
+　　......
+　　break;
+}
