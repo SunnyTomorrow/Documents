@@ -1,0 +1,110 @@
+version 1.00
+
+1. 类名
+
+1).必须以大写"C"开头，后面字母反映具体含义，以清晰表达类的用途和功能为原则。
+2).接口必须以大写"I"开头，代表 Interface 。
+3).当名称由多个单词构成时，每一个单词的第一个字母必须大写。
+
+2.结构体、宏、枚举变量、联合体
+
+全部为 前缀 + 大写字母下划线 结构
+
+1).结构体：typedef加前缀"tag"，之后以大写字母加下划线组成。
+例：
+typedef struct tagPOINT
+{
+	int x;
+	int y;
+} POINT;
+
+2).宏：大写字母组成，单词间使用下划线界定
+例：#define MAX_NUMBER 100
+
+3).枚举变量：typedef加"E_"前缀，枚举名加小写前缀"enm"。
+例：
+typedef enum E_FILE_OPEN_MODE
+{
+	enmOPEN_READONLY，
+	enmOPEN_READWRITE
+}FILE_OPEN_MODE;
+
+4).联合体：typedef加"U_"前缀，联合名加小写前缀"uni"。
+例：
+typedef union U_VARIANT
+{
+char unichVal;
+int uninVal;
+float unifVal;
+} VARIANT;
+
+
+3. 函数名
+1).命名：函数的名称由一个或多个单词组成。每个单词的首字母要大写。最长不得超过20个字符。
+2).组成形式：全局函数应当使用"动词"或者"动词＋名词"（动宾词组）的形式。例如："gGetName()", "gDrawBox()"。
+类成员函数应当只使用“动词”，被省略掉的名词就是对象本身。例如：" box->Draw();"。
+3).全局函数：以小写前缀"g"开头。
+4).保护成员函数：开头应当加上一个下划线“_”以示区别，例如："_SetState()"
+5).私有成员函数：开头应当加上两个下划线“__”，例如："__DestroyImp()"
+6).虚函数：习惯以“Do”开头，如："DoRefresh()", "_DoEncryption()"
+7).回调和事件处理函数 ：习惯以单词“On”开头。例如："_OnTimer()", "OnExit()"
+
+
+4. 变量名
+
+命名：
+1).变量名是编程中使用到最多的标识，我采用部分匈牙利命名法，即：前缀 + 类型 + 变量名，
+变量名推荐用名词或者形容词+名词结构，长度不超过20个字符。如 m_ulID
+2).如果类型为类、结构体或枚举以及联合体可以用形式：前缀 + cls/inf/tag/enm/uni + 类名/结构名/枚举名/联合体名 + 变量名
+（类/结构/枚举/联合名如果过长可简写,同时如结构体类型名全为大写则变为首字母大写），
+如：s_clsTeacherNew tagStudentZhangSan enmSysMod(type：_SYSTEM_MODE)。
+STL的类、API的类或其他常用类名时也可以使用简写形式。如：g_vctSourceData stdntZhangSan。
+无论此类情况采取哪种命名方式，都应该遵循统一原则不能一会是tagStudentZhangSan一会是stdntZhangSan
+3).特殊的情况像一些用途简单明了的局部变量如：i,j,k可直接用简写方式。
+
+作用域前缀：
+m_ ： 类的成员变量（member）
+ms_：类的静态成员变量（static member
+s_ ：静态变量（static）
+g_ ：外部全局变量（global）
+sg_：静态全局变量（static global）
+gg_：进程间共享的共享数据段全局变量（global global）
+
+类型缩写：
+char,TCHAR：									ch
+char[],TCHAR[]:								sz
+string：											str
+bool, BOOL：									b
+int,__int16,__int32,__int64：	n
+long：												l
+double：											d
+float：												f
+unsigned:											u
+BYTE：												by
+rWORD：												w
+DWORD：												dw
+unsigned：										u
+函数function：								fn
+指针pointer：									p
+长指针long pointer：					lp
+array:												a
+iterator:											it
+vector:												vct
+list:													lst
+map:													mp
+mulmap:												mmp
+set:													st
+mulset:												mst
+class:												cls
+接口\抽象类interface:					inf
+struct:												tag
+enum:													enm
+union:												uni
+
+组合类型:
+1). 按声明顺序：如 unsigned long ulID
+2). 模板库层层嵌套：取最外层类型前置，核心类型名称尽量反映在变量名中（简单类型如int float可不包含），如 vector<list<CTeacher>> vctAllTeachers, map<long,map<string,tag_STUDENT>> mpAllStudents.
+3). 各种类型指针：局部简单类型指针忽略指针类型,其他情况则 p_+类型简写， 如 int *pCounter，list<string> *plstLineStr，static CSystemUser * psysusrAdmin
+
+5. 常量
+常量名由类型前缀＋全大写字母组成，单词间通过下划线来界定，如：chDELIMITER, nMAX_BUFFER。类型前缀的定义与变量命名规则中的相同。
