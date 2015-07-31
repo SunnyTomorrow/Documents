@@ -14,8 +14,8 @@ version 1.01
 例：
 typedef struct tagPOINT
 {
-	int x;
-	int y;
+ int x;
+ int y;
 } POINT;
 
 2).宏：大写字母组成，单词间使用下划线界定
@@ -25,8 +25,8 @@ typedef struct tagPOINT
 例：
 typedef enum E_FILE_OPEN_MODE
 {
-	enmOPEN_READONLY，
-	enmOPEN_READWRITE
+ enmOPEN_READONLY，
+ enmOPEN_READWRITE
 }FILE_OPEN_MODE;
 
 4).联合体：typedef加"U_"前缀，联合名加小写前缀"uni"。
@@ -55,7 +55,7 @@ float unifVal;
 命名：
 1).变量名是编程中使用到最多的标识，我采用部分匈牙利命名法，即：前缀 + 类型 + 变量名，
 变量名推荐用名词或者形容词+名词结构，长度不超过20个字符。如 m_ulID
-2).如果类型为类、结构体或枚举以及联合体可以用形式：前缀 + cls/inf/tag/enm/uni + 类名/结构名/枚举名/联合体名 + 变量名
+2).如果类型为类、结构体或枚举以及联合体可以用形式：前缀 + cls/tag/enm/uni + 类名/结构名/枚举名/联合体名 + 变量名
 （类/结构/枚举/联合名如果过长可简写,同时如结构体类型名全为大写则变为首字母大写），
 如：s_clsTeacherNew tagStudentZhangSan enmSysMod(type：_SYSTEM_MODE)。
 STL的类、API的类或其他常用类名时也可以使用简写形式。如：g_vctSourceData stdntZhangSan。
@@ -71,35 +71,35 @@ sg_：静态全局变量（static global）
 gg_：进程间共享的共享数据段全局变量（global global）
 
 类型缩写：
-char,TCHAR：					ch
-char[],TCHAR[]:				sz
-string：							str
-bool, BOOL：					b
+char,TCHAR：                  ch
+char[],TCHAR[]:               sz
+string：                      str
+bool, BOOL：                  b
 int,__int16,__int32,__int64： n
-long：								l
-double：							d
-float：								f
-unsigned:							u
-BYTE：								by
-rWORD：								w
-DWORD：								dw
-unsigned：						u
-函数function：				fn
-指针pointer：					p
-长指针long pointer：	lp
-array:								a
-iterator:							it
-vector:								vct
-list:									lst
-map:									mp
-mulmap:								mmp
-set:									st
-mulset:								mst
-class:								cls
-接口\抽象类interface:	inf
-struct:								tag
-enum:									enm
-union:								uni
+long：                        l
+double：                      d
+float：                       f
+unsigned:                     u
+BYTE：                        by
+WORD：                        w
+DWORD：                       dw
+unsigned：                    u
+函数function：                fn
+指针pointer：                 p
+长指针long pointer：          lp
+array:                        a
+iterator:                     it
+vector:                       vct
+list:                         lst
+map:                          mp
+mulmap:                       mmp
+set:                          st
+mulset:                       mst
+class:                        cls
+接口\抽象类interface:         itf
+struct:                       tag
+enum:                         enm
+union:                        uni
 
 组合类型:
 1). 按声明顺序：如 unsigned long ulID
